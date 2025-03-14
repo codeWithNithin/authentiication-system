@@ -3,6 +3,7 @@ const express = require('express');
 require('dotenv').config();
 const { port } = require('./config/server.config');
 const apiRouter = require('./routes');
+const connectDB = require('./config/db.config');
 
 const app = express();
 
@@ -17,4 +18,5 @@ const PORT = port;
 
 app.listen(PORT, () => {
   console.log(`server listening to port: ${PORT}`)
+  connectDB();
 })
